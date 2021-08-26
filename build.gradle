@@ -1,0 +1,14 @@
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.8'
+}
+
+task runScript (dependsOn: 'classes', type: JavaExec) {
+    main = 'Launcher'
+    classpath = sourceSets.main.runtimeClasspath
+}
