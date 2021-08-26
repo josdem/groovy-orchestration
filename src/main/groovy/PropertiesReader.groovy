@@ -1,11 +1,11 @@
 class PropertiesReader {
 
-  String path = 'resources/qa.properties'
-  private Properties props = new Properties()
+  String path = "${System.getProperty('user.dir')}/src/main/resources/qa.properties"
+  Properties props = new Properties()
   File propsFile = new File(path)
-  props.load(propsFile.newDataInputStream())
 
-  def getProperty(String key) {
+  def getProperty(String key){
+    props.load(propsFile.newDataInputStream())
     props.getProperty(key)
   }
 
